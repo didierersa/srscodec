@@ -11,6 +11,4 @@ const char* const get_library_name();
 #ifdef __cplusplus
 }
 #endif
-
-
 #endif

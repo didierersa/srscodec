@@ -2,10 +2,9 @@
 win32{
 	#'/W4': Enable all warnings
 	#'/WX': Treat warning as error
-	#'/EHsc': Enable exceptions
-	COMMON_FLAGS = "/W4 /WX /EHsc"
-	QMAKE_CFLAGS = $$COMMON_FLAGS
-	QMAKE_CXXFLAGS = $$COMMON_FLAGS
+	WARNING_ON = "/W4 /WX /wd4127"
+	QMAKE_CFLAGS_WARN_ON = $$WARNING_ON
+	QMAKE_CXXFLAGS_WARN_ON = $$WARNING_ON
 
 	# '/O2': Optimize for speed
 	# '/GL': Link time code generation
