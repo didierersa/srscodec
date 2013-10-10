@@ -1,24 +1,19 @@
-include("$$PWD/project.pri")
+TEMPLATE = subdirs
+SUBDIRS += \
+        "SRSCodec" \
+        "UTests"
 
-TARGET = $$SRSCODEC_TARGET
-TEMPLATE = lib
-CONFIG += staticlib
+# Use .depends to specify that a project depends on another.
+UTests.depends = SRSCodec
 
-TARGET_STRING = '"\\"$${TARGET}\\""'
-DEFINES *= TARGET=$${TARGET_STRING}
+# Miscellaneous files
+OTHER_FILES += \
+	"LICENSE" \
+	"README.md" \
+	"uncrustify_in.cfg" \
+	"uncrustify_out.cfg" \
+	"uncrustify.sh" \
+	"git-configure.sh" \
+	".gitattributes" \
+	".gitignore"
 
-# Paths
-INCLUDEPATH += \
-	"$$PWD/include"
-
-CONFIG(debug, debug|release) {
-	DESTDIR = debug/$$SRSCODEC_LIBPATH
-} else {
-	DESTDIR = release/$$SRSCODEC_LIBPATH
-}
-
-SOURCES += \
-	"$$PWD/src/srscodec.c"
-
-HEADERS += \
-	"$$PWD/include/srscodec.h"
