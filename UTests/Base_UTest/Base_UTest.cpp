@@ -16,10 +16,11 @@ private slots:
 void Base_UTest::toUpper()
 {
 	const QString& str = QString::fromLatin1( get_library_name() );
-
-#pragma warning(push, 0)
+#ifdef __DEBUG__
+	QCOMPARE( str.toUpper(), QString( "SRSCODECD" ) );
+#else
 	QCOMPARE( str.toUpper(), QString( "SRSCODEC" ) );
-#pragma warning(pop)
+#endif
 }
 
 #pragma warning(push, 0)
